@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'postal_code' => $data['postal_code'],
             'password' => Hash::make($data['password']),
             'role_id' => 3,
-            'university_id' => 1,
+            'university_id' => $data['university_id'],
         ]);
     }
 
@@ -90,7 +90,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $universities = \App\University::all();
+        return view('auth.register')->with(['universities' => $universities, 'form_type' => 'register']);
     }
 
     /**

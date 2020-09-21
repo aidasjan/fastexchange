@@ -5,3 +5,11 @@ body {
 .container_main {
     background-color: #fff;
 }
+
+.btn {
+    font-weight: bold;
+}
+
+.btn-link {
+    font-weight: bold;
+}

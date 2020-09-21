@@ -26,6 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.users.dashboard');
+        $roles = \App\Role::all();
+        $users = \App\User::all();
+        return view('pages.users.dashboard')->with([
+            'roles' => $roles,
+            'users' => $users,
+        ]);
     }
 }

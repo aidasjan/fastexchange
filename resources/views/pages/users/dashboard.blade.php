@@ -5,7 +5,7 @@
 <div class='container'>
     <h1>My Dashboard</h1>
     <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }}</h4>
-    <div class='row'>
+    <div class='row mt-4'>
         <div class='col'>
             <div class='row py-3 my-3 mx-1 shadow container_main'>
                 <div class='col'>
@@ -16,6 +16,37 @@
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
                         <h3>Recommended universities</h3>
+                    </div>
+                </div>
+            @endif
+            @if (auth()->user()->hasPermission('manage_roles'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3 class='mb-2'>Manage roles</h3>
+                        <div class='py-3'>
+                            <a href="{{url('users/roles')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            <tr><th>Name</th><th># of users</th></tr>
+                            @foreach ($roles as $role)
+                                <tr><td>{{ $role->name }}</td><td>{{ count($role->users) }}</td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
+            @if (auth()->user()->hasPermission('manage_users'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3 class='mb-2'>Manage users</h3>
+                        <div class='py-3'>
+                            <a href="{{url('users/create')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($users as $user)
+                                <tr><td>{{ $user->name }} {{ $user->surname }}</td><td><a href="{{ url('users/'.$user->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             @endif

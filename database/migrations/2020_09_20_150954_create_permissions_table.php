@@ -20,10 +20,10 @@ class CreatePermissionsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('permissions_roles', function (Blueprint $table) {
+        Schema::create('permission_role', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('role_id');
-            $table->string('permission_id');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('permission_id');
             $table->timestamps();
         });
 
@@ -88,7 +88,7 @@ class CreatePermissionsTable extends Migration
         );
 
         foreach($init_roles_perms as $role_perm){
-            DB::table('permissions_roles')->insert([
+            DB::table('permission_role')->insert([
                 'role_id' => $role_perm[0], 
                 'permission_id' => $role_perm[1], 
             ]);
