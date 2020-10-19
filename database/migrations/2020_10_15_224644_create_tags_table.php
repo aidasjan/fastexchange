@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacultiesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,28 +13,20 @@ class CreateFacultiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('type');
             $table->string('code');
-            $table->string('establishmentdate');
             $table->timestamps();
         });
 
-        
-        DB::table('faculties')->insert(
+        DB::table('tags')->insert(
             array(
-                'name' => 'Informatics',
-                'code' => 'IT454545',
-                'type' => 'Computer science',
-                'establishmentdate' => '25-02-1990',
+                'name' => 'Math',
+                'code' => 'SM453215',
             )
         );
-
     }
-
-    
 
     /**
      * Reverse the migrations.
@@ -43,6 +35,6 @@ class CreateFacultiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculties');
+        Schema::dropIfExists('tags');
     }
 }

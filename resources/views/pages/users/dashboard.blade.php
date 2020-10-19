@@ -19,6 +19,47 @@
                     </div>
                 </div>
             @endif
+            @if (auth()->user()->hasPermission('manage_modules'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>University modules</h3>
+                        <div class='py-3'>
+                            <a href="{{url('modules')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($modules as $module)
+                                <tr><td>{{ $module->name }}</td><td><a href="{{ url('modules/'.$module->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>Faculties</h3>
+                        <div class='py-3'>
+                            <a href="{{url('faculties')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($faculties as $faculty)
+                                <tr><td>{{ $faculty->name }}</td><td><a href="{{ url('faculties/'.$faculty->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>Tags</h3>
+                        <div class='py-3'>
+                            <a href="{{url('tags')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($tags as $tag)
+                                <tr><td>{{ $tag->name }}</td><td><a href="{{ url('tags/'.$tag->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
             @if (auth()->user()->hasPermission('manage_roles'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>

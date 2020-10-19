@@ -33,3 +33,21 @@ Route::get('users/roles/{id}/edit', 'Users\RoleController@edit');
 Route::post('users/roles', 'Users\RoleController@store');
 Route::put('users/roles/{id}', 'Users\RoleController@update');
 Route::delete('users/roles/{id}', 'Users\RoleController@destroy');
+
+Route::get('modules', 'Modules\ModuleController@create');
+Route::get('modules/{id}/edit', 'Modules\ModuleController@edit');
+Route::post('modules', 'Modules\ModuleController@store');
+Route::put('modules/{id}', 'Modules\ModuleController@update');
+Route::delete('modules/{id}', 'Modules\ModuleController@destroy');
+
+Route::get('faculties', 'Faculties\FacultyController@create');
+Route::get('faculties/{id}/edit', 'Faculties\FacultyController@edit');
+Route::post('faculties', 'Faculties\FacultyController@store');
+Route::put('faculties/{id}', 'Faculties\FacultyController@update');
+Route::delete('faculties/{id}', 'Faculties\FacultyController@destroy');
+
+Route::get('tags', 'Tags\TagController@create');
+Route::get('tags/{id}/edit', 'Tags\TagController@edit');
+Route::post('tags', 'Tags\TagController@store');
+Route::put('tags/{id}', 'Tags\TagController@update');
+Route::delete('tags/{id}', 'Tags\TagController@destroy');

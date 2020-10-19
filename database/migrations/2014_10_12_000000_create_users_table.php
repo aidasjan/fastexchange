@@ -52,6 +52,22 @@ class CreateUsersTable extends Migration
         );
         DB::table('users')->insert(
             array(
+                'email' => 'university@fastexchange.local',
+                'name' => 'university',
+                'surname' => 'worker',
+                'phone' => '+370',
+                'personal_code' => '123456789',
+                'country' => 'Lithuania',
+                'city' => 'Kaunas',
+                'address' => 'Test address 3',
+                'postal_code' => 'LT12345',
+                'role_id' => '2',
+                'university_id' => '1',
+                'password' => Hash::make('jonas123'),
+            )
+        );
+        DB::table('users')->insert(
+            array(
                 'email' => 'jonas@fastexchange.local',
                 'name' => 'Jonas',
                 'surname' => 'Studentas',
