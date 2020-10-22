@@ -57,6 +57,15 @@
                     <div class='col text-left'>
                         <h3 class='mb-3'>English exam</h3>
                         <h5>Upcoming exams</h5>
+                        <table class='table text-left'>
+                            @foreach ($exams as $exam)
+                                @if(!auth()->user()->exams->find($exam->id))
+                                    <tr><td>{{ $exam->date }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
+                                @else
+                                    <tr><td>{{ $exam->date }}</td><td style="color: #00aa00">Registered</td></tr>
+                                @endif
+                            @endforeach
+                        </table>
                         <hr/>
                         <h5>Practice test</h5>
                         <div class='py-3'>

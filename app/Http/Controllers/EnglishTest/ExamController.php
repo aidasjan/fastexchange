@@ -27,4 +27,10 @@ class ExamController extends Controller
 
     }
 
+    public function register($id)
+    {
+        auth()->user()->exams()->attach($id);
+        return redirect('dashboard');
+    }
+
 }
