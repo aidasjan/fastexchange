@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EnglishTest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\TestQuestion;
 
 class TestTakingController extends Controller
 {
@@ -14,12 +15,34 @@ class TestTakingController extends Controller
 
     public function show()
     {
-        
+        $all_questions = [];
+        for ($i=1; $i<=2; $i++){
+            $questions = TestQuestion::where('language_level_id', $i)->get();
+            array_push($all_questions, $questions[rand(0, count($questions)-1)]);
+        }
+        return view('pages.english_tests.test_taking')->with(['test_questions' => $all_questions]);
     }
 
-    public function submit()
+    public function submit(Request $request)
     {
+        $total_points = 0;
+        foreach($request->all() as $key => $answer){
+            if (!is_numeric($key)) continue;
+            $test_question = TestQuestion::find($key);
+            if ($test_question->answer == $answer){
+                $total_points += $test_question->points;
+            }
+        }
+        return view('pages.english_tests.results')->with(['points' => $total_points, 'level' => $this->getLevel($total_points)]);
+    }
 
+    private function getLevel($points)
+    {
+        switch($points){
+            case $points <= 10 : return "A2";
+            case $points <= 30 : return "B1";
+            default : return "A1";
+        }
     }
 
 }

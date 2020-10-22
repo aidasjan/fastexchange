@@ -24,6 +24,42 @@ class CreateTestQuestionsTable extends Migration
             $table->unsignedBigInteger('language_level_id');
             $table->timestamps();
         });
+        DB::table('test_questions')->insert([
+            'question' => 'q1', 
+            'answer' => 'a',
+            'a' => 'aaa',
+            'b' => 'bbb',
+            'c' => 'ccc',
+            'points' => '10',
+            'language_level_id' => '1',
+        ]);
+        DB::table('test_questions')->insert([
+            'question' => 'q2', 
+            'answer' => 'b',
+            'a' => 'aaa',
+            'b' => 'bbb',
+            'c' => 'ccc',
+            'points' => '10',
+            'language_level_id' => '1',
+        ]);
+        DB::table('test_questions')->insert([
+            'question' => 'q3', 
+            'answer' => 'c',
+            'a' => 'aaa',
+            'b' => 'bbb',
+            'c' => 'ccc',
+            'points' => '20',
+            'language_level_id' => '2',
+        ]);
+        DB::table('test_questions')->insert([
+            'question' => 'q4', 
+            'answer' => 'a',
+            'a' => 'aaa',
+            'b' => 'bbb',
+            'c' => 'ccc',
+            'points' => '20',
+            'language_level_id' => '2',
+        ]);
     }
 
     /**

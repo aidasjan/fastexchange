@@ -58,7 +58,10 @@
                         <h3 class='mb-3'>English exam</h3>
                         <h5>Upcoming exams</h5>
                         <hr/>
-                        <h5>Practice exam</h5>
+                        <h5>Practice test</h5>
+                        <div class='py-3'>
+                            <a href="{{url('test/take')}}" class='btn btn-primary'>Take test</a>
+                        </div>
                     </div>
                 </div>
             @endif
