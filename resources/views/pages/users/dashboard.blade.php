@@ -62,6 +62,21 @@
                     </div>
                 </div>
             @endif
+            @if (auth()->user()->hasPermission('manage_tests'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col text-left'>
+                        <h3 class='mb-3'>Test management</h3>
+                        <div class='py-3'>
+                            <a href="{{url('questions/create')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($test_questions as $test_question)
+                                <tr><td>{{ $test_question->question }}</td><td><a href="{{ url('questions/'.$test_question->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
             <div class='row py-3 my-3 mx-1 shadow container_main'>
                 <div class='col text-left'>
                     <h3 class='mb-3'>Personal data</h3>

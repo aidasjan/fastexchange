@@ -33,3 +33,19 @@ Route::get('users/roles/{id}/edit', 'Users\RoleController@edit');
 Route::post('users/roles', 'Users\RoleController@store');
 Route::put('users/roles/{id}', 'Users\RoleController@update');
 Route::delete('users/roles/{id}', 'Users\RoleController@destroy');
+
+
+// English test routes
+Route::get('questions/create', 'EnglishTest\TestQuestionController@create');
+Route::get('questions/{id}/edit', 'EnglishTest\TestQuestionController@edit');
+Route::post('questions', 'EnglishTest\TestQuestionController@store');
+Route::put('questions/{id}', 'EnglishTest\TestQuestionController@update');
+Route::delete('questions/{id}', 'EnglishTest\TestQuestionController@destroy');
+
+Route::get('test/take', 'EnglishTest\TestTakingController@show');
+Route::post('test/take', 'EnglishTest\TestTakingController@submit');
+
+Route::get('exams', 'EnglishTest\ExamController@create');
+Route::post('exams', 'EnglishTest\ExamController@store');
+
+Route::get('exams/{id}/register', 'EnglishTest\ExamController@register');
