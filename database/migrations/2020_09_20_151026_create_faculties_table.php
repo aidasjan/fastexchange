@@ -22,7 +22,28 @@ class CreateFacultiesTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('faculty_module', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('faculty_id');
+            $table->unsignedBigInteger('module_id');
+            $table->timestamps();
+        });
+
         
+        DB::table('faculty_module')->insert(
+            array(
+                'faculty_id' => 1,
+                'module_id' => 1,
+            )
+        );
+
+        DB::table('faculty_module')->insert(
+            array(
+                'faculty_id' => 1,
+                'module_id' => 2,
+            )
+        );
+
         DB::table('faculties')->insert(
             array(
                 'name' => 'Informatics',
@@ -31,6 +52,16 @@ class CreateFacultiesTable extends Migration
                 'establishmentdate' => '25-02-1990',
             )
         );
+
+        DB::table('faculties')->insert(
+            array(
+                'name' => 'Mathexl',
+                'code' => 'MT454545',
+                'type' => 'Math',
+                'establishmentdate' => '25-02-1992',
+            )
+        );
+
 
     }
 

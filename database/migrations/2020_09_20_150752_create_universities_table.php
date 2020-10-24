@@ -23,6 +23,29 @@ class CreateUniversitiesTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('faculty_university', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('university_id');
+            $table->unsignedBigInteger('faculty_id');
+            $table->timestamps();
+        });
+
+        DB::table('faculty_university')->insert(
+            array(
+                'university_id' => 1,
+                'faculty_id' => 1,
+            )
+        );
+
+        DB::table('faculty_university')->insert(
+            array(
+                'university_id' => 1,
+                'faculty_id' => 2,
+            )
+        );
+
+
+
         $init_items = array(
             ["Kaunas University of Technology", "Lithuania", "Kaunas", "Studentu st.", "LT50000"],
             ["Vilnius University", "Lithuania", "Vilnius", "Vinlius st.", "LT60000"],

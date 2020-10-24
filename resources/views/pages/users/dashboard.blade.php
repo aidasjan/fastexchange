@@ -19,6 +19,22 @@
                     </div>
                 </div>
             @endif
+            @if (auth()->user()->hasPermission('participate_in_exchange'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>My modules</h3>
+                        <div class='py-3'>
+                            <a href="{{url('modules-list')}}" class='btn btn-primary'>My modules list</a>
+                        </div>
+                        <table class='table text-left'>
+                            <tr><th>Name</th></tr>
+                            @foreach ($modules_user as $module)
+                                <tr><td>{{ $module->name }}</td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
             @if (auth()->user()->hasPermission('manage_modules'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
@@ -27,6 +43,7 @@
                             <a href="{{url('modules')}}" class='btn btn-primary'>Add new</a>
                         </div>
                         <table class='table text-left'>
+                            <tr><th>Name</th><th>Edit</th></tr>
                             @foreach ($modules as $module)
                                 <tr><td>{{ $module->name }}</td><td><a href="{{ url('modules/'.$module->id.'/edit') }}">Edit</a></td></tr>
                             @endforeach
@@ -36,12 +53,10 @@
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
                         <h3>Faculties</h3>
-                        <div class='py-3'>
-                            <a href="{{url('faculties')}}" class='btn btn-primary'>Add new</a>
-                        </div>
                         <table class='table text-left'>
+                            <tr><th>Name</th><th># of modules</th></tr>
                             @foreach ($faculties as $faculty)
-                                <tr><td>{{ $faculty->name }}</td><td><a href="{{ url('faculties/'.$faculty->id.'/edit') }}">Edit</a></td></tr>
+                                <tr><td>{{ $faculty->name }}</td><td>{{ count($modules->where('faculty_id', $faculty->id)) }}</td></tr>
                             @endforeach
                         </table>
                     </div>
@@ -49,12 +64,10 @@
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
                         <h3>Tags</h3>
-                        <div class='py-3'>
-                            <a href="{{url('tags')}}" class='btn btn-primary'>Add new</a>
-                        </div>
                         <table class='table text-left'>
+                            <tr><th>Name</th><th># in modules</th></tr>
                             @foreach ($tags as $tag)
-                                <tr><td>{{ $tag->name }}</td><td><a href="{{ url('tags/'.$tag->id.'/edit') }}">Edit</a></td></tr>
+                                <tr><td>{{ $tag->name }}</td><td> {{ count($tag->modules) }}</td></tr>
                             @endforeach
                         </table>
                     </div>
@@ -98,8 +111,35 @@
                     <div class='col text-left'>
                         <h3 class='mb-3'>English exam</h3>
                         <h5>Upcoming exams</h5>
+                        <table class='table text-left'>
+                            @foreach ($exams as $exam)
+                                @if(!auth()->user()->exams->find($exam->id))
+                                    <tr><td>{{ $exam->date }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
+                                @else
+                                    <tr><td>{{ $exam->date }}</td><td style="color: #00aa00">Registered</td></tr>
+                                @endif
+                            @endforeach
+                        </table>
                         <hr/>
-                        <h5>Practice exam</h5>
+                        <h5>Practice test</h5>
+                        <div class='py-3'>
+                            <a href="{{url('test/take')}}" class='btn btn-primary'>Take test</a>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if (auth()->user()->hasPermission('manage_tests'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col text-left'>
+                        <h3 class='mb-3'>Test management</h3>
+                        <div class='py-3'>
+                            <a href="{{url('questions/create')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            @foreach ($test_questions as $test_question)
+                                <tr><td>{{ $test_question->question }}</td><td><a href="{{ url('questions/'.$test_question->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             @endif

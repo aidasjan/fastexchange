@@ -35,9 +35,11 @@ Route::put('users/roles/{id}', 'Users\RoleController@update');
 Route::delete('users/roles/{id}', 'Users\RoleController@destroy');
 
 Route::get('modules', 'Modules\ModuleController@create');
+Route::get('modules-list', 'Modules\ModuleController@createList');
 Route::get('modules/{id}/edit', 'Modules\ModuleController@edit');
 Route::post('modules', 'Modules\ModuleController@store');
 Route::put('modules/{id}', 'Modules\ModuleController@update');
+Route::put('modules-list/{id}', 'Modules\ModuleController@updateList');
 Route::delete('modules/{id}', 'Modules\ModuleController@destroy');
 
 Route::get('faculties', 'Faculties\FacultyController@create');
@@ -51,3 +53,18 @@ Route::get('tags/{id}/edit', 'Tags\TagController@edit');
 Route::post('tags', 'Tags\TagController@store');
 Route::put('tags/{id}', 'Tags\TagController@update');
 Route::delete('tags/{id}', 'Tags\TagController@destroy');
+
+// English test routes
+Route::get('questions/create', 'EnglishTest\TestQuestionController@create');
+Route::get('questions/{id}/edit', 'EnglishTest\TestQuestionController@edit');
+Route::post('questions', 'EnglishTest\TestQuestionController@store');
+Route::put('questions/{id}', 'EnglishTest\TestQuestionController@update');
+Route::delete('questions/{id}', 'EnglishTest\TestQuestionController@destroy');
+
+Route::get('test/take', 'EnglishTest\TestTakingController@show');
+Route::post('test/take', 'EnglishTest\TestTakingController@submit');
+
+Route::get('exams', 'EnglishTest\ExamController@create');
+Route::post('exams', 'EnglishTest\ExamController@store');
+
+Route::get('exams/{id}/register', 'EnglishTest\ExamController@register');

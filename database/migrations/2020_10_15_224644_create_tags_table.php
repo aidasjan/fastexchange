@@ -26,6 +26,48 @@ class CreateTagsTable extends Migration
                 'code' => 'SM453215',
             )
         );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'Computer science',
+                'code' => 'SC453215',
+            )
+        );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'Philosophy',
+                'code' => 'SP453215',
+            )
+        );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'Archaeology',
+                'code' => 'SA453215',
+            )
+        );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'Architecture / Built Environment',
+                'code' => 'SB453215',
+            )
+        );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'English Language & Literature',
+                'code' => 'SE453215',
+            )
+        );
+
+        DB::table('tags')->insert(
+            array(
+                'name' => 'History',
+                'code' => 'SH453215',
+            )
+        );
     }
 
     /**

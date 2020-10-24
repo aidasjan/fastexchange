@@ -41,6 +41,24 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function exams(){
+        return $this->belongsToMany('App\Exam');
+    }
+
+    public function modules() {
+        return $this->belongsToMany('App\Module');
+    }
+
+    public function reattachModules($item_ids)
+    {
+        $this->modules()->detach();
+        foreach($item_ids as $item_id){
+            if(($item = \App\Module::find($item_id)) !== null)
+                $this->modules()->attach($item_id);
+            else return;
+        }
+    }
+
     public function getPermissions(){
         return $this->role->permissions;
     }
