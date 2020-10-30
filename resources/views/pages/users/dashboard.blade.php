@@ -4,7 +4,7 @@
 
 <div class='container'>
     <h1>My Dashboard</h1>
-    <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }}</h4>
+    <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }} | {{ auth()->user()->university->name }}</h4>
     <div class='row mt-4'>
         <div class='col'>
             <div class='row py-3 my-3 mx-1 shadow container_main'>
@@ -15,8 +15,8 @@
             @if (auth()->user()->hasPermission('participate_in_exchange'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
-                        <h3>Recommended universities</h3>
-                        <p>Get the recommendations based on our algorithms</p>
+                        <h3>Recommended modules</h3>
+                        <p>Get module recommendations from foreign universities</p>
                         <div class='py-3'>
                             <a href="{{url('modules/recommended')}}" class='btn btn-primary'>Get recommentations</a>
                         </div>
@@ -116,11 +116,12 @@
                         <h3 class='mb-3'>English exam</h3>
                         <h5>Upcoming exams</h5>
                         <table class='table text-left'>
+                            <tr><th>Date</th><th>Level</th><th></th></tr>
                             @foreach ($exams as $exam)
                                 @if(!auth()->user()->exams->find($exam->id))
-                                    <tr><td>{{ $exam->date }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
+                                    <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
                                 @else
-                                    <tr><td>{{ $exam->date }}</td><td style="color: #00aa00">Registered</td></tr>
+                                    <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td><td style="color: #00aa00">Registered</td></tr>
                                 @endif
                             @endforeach
                         </table>
@@ -142,6 +143,22 @@
                         <table class='table text-left'>
                             @foreach ($test_questions as $test_question)
                                 <tr><td>{{ $test_question->question }}</td><td><a href="{{ url('questions/'.$test_question->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
+            @if (auth()->user()->hasPermission('manage_exams'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col text-left'>
+                        <h3 class='mb-3'>Upcoming Exams</h3>
+                        <div class='py-3'>
+                            <a href="{{url('exams')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            <tr><th>Date</th><th>Level</th></tr>
+                            @foreach ($exams as $exam)
+                                <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td></tr>
                             @endforeach
                         </table>
                     </div>

@@ -76,6 +76,13 @@ class CreatePermissionsTable extends Migration
                 'name' => 'Participate in exchange',
             )
         );
+        DB::table('permissions')->insert(
+            array(
+                'id' => 8,
+                'code' => 'manage_exams',
+                'name' => 'Manage Exams',
+            )
+        );
 
         $init_roles_perms = array(
             [1, 1],
@@ -83,6 +90,7 @@ class CreatePermissionsTable extends Migration
             [1, 3],
             [1, 4],
             [2, 5],
+            [2, 8],
             [3, 6],
             [3, 7],
         );

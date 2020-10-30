@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Module');
     }
 
+    public function university() {
+        return $this->belongsTo('App\University');
+    }
+
     public function reattachModules($item_ids)
     {
         $this->modules()->detach();
