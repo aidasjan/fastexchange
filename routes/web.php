@@ -49,3 +49,18 @@ Route::get('exams', 'EnglishTest\ExamController@create');
 Route::post('exams', 'EnglishTest\ExamController@store');
 
 Route::get('exams/{id}/register', 'EnglishTest\ExamController@register');
+
+// Reviews routes
+Route::get('review/create', 'Reviews\ReviewController@create');
+Route::post('review','Reviews\ReviewController@store');
+Route::get('reviews', 'Reviews\ReviewController@show');
+
+Route::post('rate','Reviews\RatingController@store');
+
+
+//Images routes
+Route::get('store_image', 'Reviews\StoreImageController@index');
+
+Route::post('store_image/insert_image', 'Reviews\StoreImageController@insert_image');
+
+Route::get('store_image/fetch_image/{id}', 'Reviews\StoreImageController@fetch_image');

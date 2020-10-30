@@ -30,10 +30,12 @@ class DashboardController extends Controller
         $users = \App\User::all();
         $test_questions = \App\TestQuestion::take(3)->get();
         $exams = \App\Exam::all();
+        $universities = \App\University::all();
         return view('pages.users.dashboard')->with([
             'roles' => $roles,
             'users' => $users,
             'test_questions' => $test_questions,
+            'universities' => $universities,
             'exams' => $exams,
         ]);
     }

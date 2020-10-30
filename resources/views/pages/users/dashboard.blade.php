@@ -11,11 +11,20 @@
                 <div class='col'>
                     <h3>Top rated universities</h3>
                 </div>
+                
             </div>
             @if (auth()->user()->hasPermission('participate_in_exchange'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
                         <h3>Recommended universities</h3>
+                    </div>
+                </div>
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class="col-9">
+                        <a href="{{url('review/create')}}" class='btn btn-primary'>Palikti atsiliepimą apie universitetą</a>
+                    </div>
+                    <div class="col-3">
+                        <a href="{{url('store_image')}}" class='btn btn-primary'>Pridėti nuotrauką</a>
                     </div>
                 </div>
             @endif
@@ -47,6 +56,11 @@
                                 <tr><td>{{ $user->name }} {{ $user->surname }}</td><td><a href="{{ url('users/'.$user->id.'/edit') }}">Edit</a></td></tr>
                             @endforeach
                         </table>
+                    </div>
+                </div>
+                <div class="row py-3 my-3 mx-1 shadow container_main">
+                    <div class="col">
+                        <a href="{{url('reviews')}}" class='btn btn-primary'>Nepatvirtinti atsiliepimai</a>
                     </div>
                 </div>
             @endif
