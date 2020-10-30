@@ -11,8 +11,8 @@ class Module extends Model
         return $this->belongsToMany('App\Tag');
     }
 
-    public function faculties(){
-        return $this->hasMany('App\Faculty');
+    public function faculty(){
+        return $this->belongsTo('App\Faculty');
     }
 
     public function reattachTags($item_ids)

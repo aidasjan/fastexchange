@@ -41,6 +41,7 @@ Route::post('modules', 'Modules\ModuleController@store');
 Route::put('modules/{id}', 'Modules\ModuleController@update');
 Route::put('modules-list/{id}', 'Modules\ModuleController@updateList');
 Route::delete('modules/{id}', 'Modules\ModuleController@destroy');
+Route::get('modules/recommended', 'Modules\ModuleController@showRecommended');
 
 Route::get('faculties', 'Faculties\FacultyController@create');
 Route::get('faculties/{id}/edit', 'Faculties\FacultyController@edit');

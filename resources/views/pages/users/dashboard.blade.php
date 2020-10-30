@@ -16,6 +16,10 @@
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
                         <h3>Recommended universities</h3>
+                        <p>Get the recommendations based on our algorithms</p>
+                        <div class='py-3'>
+                            <a href="{{url('modules/recommended')}}" class='btn btn-primary'>Get recommentations</a>
+                        </div>
                     </div>
                 </div>
             @endif
@@ -24,12 +28,12 @@
                     <div class='col'>
                         <h3>My modules</h3>
                         <div class='py-3'>
-                            <a href="{{url('modules-list')}}" class='btn btn-primary'>My modules list</a>
+                            <a href="{{url('modules-list')}}" class='btn btn-primary'>Edit selections</a>
                         </div>
                         <table class='table text-left'>
-                            <tr><th>Name</th></tr>
+                            <tr><th>Name</th><th>ECTS</th></tr>
                             @foreach ($modules_user as $module)
-                                <tr><td>{{ $module->name }}</td></tr>
+                                <tr><td>{{ $module->name }}</td><td>{{ $module->credits }}</td></tr>
                             @endforeach
                         </table>
                     </div>

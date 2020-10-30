@@ -27,15 +27,7 @@ class ModuleController extends Controller
     public function createList()
     {
         $faculties = \App\University::all()->where('id', Auth::user()->university_id)->first()->faculties()->get();
-        $allModules = [];
-        foreach ($faculties as $faculty)
-        {
-            $modules = \App\Module::all()->where('faculty_id', $faculty->id);
-            foreach ($modules as $module)
-            {
-                $allModules[] = $module;
-            }
-        }
+        $allModules = auth()->user()->getModulesInUserUniversity();
         $user_module=Auth::user()->modules()->get();
         return view('pages.modules.create-list')->with([
             'form_type' => 'create',
@@ -43,6 +35,40 @@ class ModuleController extends Controller
             'user_module' => $user_module,
             'user' => Auth::user(),
         ]);
+    }
+
+    public function showRecommended()
+    {
+        $recommendedModules = [];
+        $universities = \App\University::where('id', '<>', auth()->user()->university_id)->get();
+        foreach ($universities as $university) {
+            foreach ($university->faculties as $faculty) {
+                foreach ($faculty->modules as $module) {
+                    $points = 0;
+                    foreach ($module->tags as $tag){
+                        foreach (auth()->user()->modules as $user_module) {
+                            foreach ($user_module->tags as $user_module_tag) {
+                                if ($user_module_tag->id == $tag->id) {
+                                    $points++;
+                                }
+                            }
+                        }
+                    }
+                    if ($points > 0) {
+                        array_push($recommendedModules, ['module' => $module, 'points' => $points]);
+                    }
+                }
+            }
+        }
+        $module_collection = collect($recommendedModules);
+        $module_collection = $module_collection->sortByDesc('points');
+        $max_points = 0;
+        foreach ($module_collection as $module) {
+            if ($module['points'] > $max_points) {
+                $max_points = $module['points'];
+            }
+        }
+        return view('pages.modules.recommended')->with(['recommended_modules' => $module_collection, 'max_points' => $max_points]);
     }
 
     public function store(Request $request)

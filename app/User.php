@@ -66,4 +66,15 @@ class User extends Authenticatable
     public function hasPermission($permission_code){
         return $this->role->permissions->contains('code', $permission_code);
     }
+
+    public function getModulesInUserUniversity() {
+        $modules = [];
+        $faculties = \App\University::find($this->university_id)->faculties;
+        foreach ($faculties as $faculty) {
+            foreach ($faculty->modules as $module) {
+                array_push($modules, $module);
+            }
+        }
+        return collect($modules);
+    }
 }

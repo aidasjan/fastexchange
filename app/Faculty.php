@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Faculty extends Model
 {
 
-    public function universities(){
-        return $this->hasMany('App\University');
+    public function university(){
+        return $this->belongsTo('App\University');
+    }
+
+    public function modules(){
+        return $this->hasMany('App\Module');
     }
 
     public function reattachModules($item_ids)
