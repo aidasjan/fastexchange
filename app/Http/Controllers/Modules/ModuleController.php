@@ -58,7 +58,7 @@ class ModuleController extends Controller
         $module->year = $request->year;
         $module->isMandatory = $request->isMandatory === 'true' ? true : false;
         $module->faculty_id = $request->faculty_id;
-        dd($module->save());
+        $module->save();
         $module->reattachTags($request->tags);
 
         return redirect('dashboard');
