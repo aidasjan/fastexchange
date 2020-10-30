@@ -23,9 +23,11 @@ class UsersController extends Controller
     public function create()
     {
         $universities=\App\University::all();
+        $countries = \App\Country::all();
         $roles=\App\Role::all();
         return view('auth.register')->with([
             'universities' => $universities,
+            'countries' => $countries,
             'roles' => $roles,
             'form_type' => 'create',
         ]);
@@ -39,10 +41,14 @@ class UsersController extends Controller
         $user->surname = $request->surname;
         $user->phone = $request->phone;
         $user->personal_code = $request->personal_code;
-        $user->country = $request->country;
+        $user->country_id = $request->country_id;
         $user->city = $request->city;
         $user->address = $request->address;
         $user->postal_code = $request->postal_code;
+        $user->relative_name = $request->relative_name;
+        $user->relative_phone = $request->relative_phone;
+        $user->bank_account = $request->bank_account;
+        $user->native_language = $request->native_language;
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
         $user->university_id = $request->university_id;
@@ -53,10 +59,12 @@ class UsersController extends Controller
     public function edit($id)	
     {
         $universities=\App\University::all();
+        $countries = \App\Country::all();
         $roles=\App\Role::all();
         $user=\App\User::find($id);
         return view('auth.register')->with([
             'universities' => $universities,
+            'countries' => $countries,
             'roles' => $roles,
             'user' => $user,
             'form_type' => 'edit',
@@ -71,10 +79,14 @@ class UsersController extends Controller
         $user->surname = $request->surname;
         $user->phone = $request->phone;
         $user->personal_code = $request->personal_code;
-        $user->country = $request->country;
+        $user->country_id = $request->country_id;
         $user->city = $request->city;
         $user->address = $request->address;
         $user->postal_code = $request->postal_code;
+        $user->relative_name = $request->relative_name;
+        $user->relative_phone = $request->relative_phone;
+        $user->bank_account = $request->bank_account;
+        $user->native_language = $request->native_language;
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
         $user->university_id = $request->university_id;

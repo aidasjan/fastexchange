@@ -21,10 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('phone');
             $table->string('personal_code');
-            $table->string('country');
+            $table->string('country_id');
             $table->string('city');
             $table->string('address');
             $table->string('postal_code');
+            $table->string('relative_name')->nullable();
+            $table->string('relative_phone')->nullable();
+            $table->string('bank_account')->nullable();
+            $table->string('native_language')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('university_id');
@@ -41,27 +45,11 @@ class CreateUsersTable extends Migration
                 'surname' => 'Adminas',
                 'phone' => '+370',
                 'personal_code' => '123456789',
-                'country' => 'Lithuania',
+                'country_id' => '1',
                 'city' => 'Kaunas',
                 'address' => 'Test address 1',
                 'postal_code' => 'LT12345',
                 'role_id' => '1',
-                'university_id' => '1',
-                'password' => Hash::make('jonas123'),
-            )
-        );
-        DB::table('users')->insert(
-            array(
-                'email' => 'university@fastexchange.local',
-                'name' => 'university',
-                'surname' => 'worker',
-                'phone' => '+370',
-                'personal_code' => '123456789',
-                'country' => 'Lithuania',
-                'city' => 'Kaunas',
-                'address' => 'Test address 3',
-                'postal_code' => 'LT12345',
-                'role_id' => '2',
                 'university_id' => '1',
                 'password' => Hash::make('jonas123'),
             )
@@ -73,7 +61,7 @@ class CreateUsersTable extends Migration
                 'surname' => 'worker',
                 'phone' => '+370',
                 'personal_code' => '123456789',
-                'country' => 'Lithuania',
+                'country_id' => '1',
                 'city' => 'Kaunas',
                 'address' => 'Test address 3',
                 'postal_code' => 'LT12345',
@@ -89,7 +77,7 @@ class CreateUsersTable extends Migration
                 'surname' => 'worker',
                 'phone' => '+370',
                 'personal_code' => '123456789',
-                'country' => 'Lithuania',
+                'country_id' => '1',
                 'city' => 'Kaunas',
                 'address' => 'Test address 3',
                 'postal_code' => 'LT12345',
@@ -105,7 +93,7 @@ class CreateUsersTable extends Migration
                 'surname' => 'Studentas',
                 'phone' => '+370',
                 'personal_code' => '123456781',
-                'country' => 'Lithuania',
+                'country_id' => '1',
                 'city' => 'Kaunas',
                 'address' => 'Test address 2',
                 'postal_code' => 'LT12345',

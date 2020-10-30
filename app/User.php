@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'surname', 'phone', 'personal_code', 'country', 'city', 'address', 'postal_code', 'role_id', 'university_id'
+        'name', 'email', 'password', 'surname', 'phone', 'personal_code', 'country_id', 'city', 'address', 'postal_code', 'role_id', 'university_id'
     ];
 
     /**
@@ -51,6 +51,10 @@ class User extends Authenticatable
 
     public function university() {
         return $this->belongsTo('App\University');
+    }
+
+    public function country(){
+        return $this->belongsTo('App\Country');
     }
 
     public function reattachModules($item_ids)

@@ -172,7 +172,7 @@
                         <tr><td>Surname</td><td>{{ auth()->user()->surname }}</td></tr>
                         <tr><td>Personal code</td><td>{{ auth()->user()->personal_code }}</td></tr>
                         <tr><td>Phone</td><td>{{ auth()->user()->phone }}</td></tr>
-                        <tr><td>Country</td><td>{{ auth()->user()->country }}</td></tr>
+                        <tr><td>Country</td><td>{{ auth()->user()->country->name }}</td></tr>
                         <tr><td>City</td><td>{{ auth()->user()->city }}</td></tr>
                         <tr><td>Address</td><td>{{ auth()->user()->address }}</td></tr>
                         <tr><td>Postal code</td><td>{{ auth()->user()->postal_code }}</td></tr>

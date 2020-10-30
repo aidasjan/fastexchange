@@ -20,6 +20,9 @@ class CreateUniversitiesTable extends Migration
             $table->string('city');
             $table->string('address');
             $table->string('postal_code');
+            $table->string('website');
+            $table->string('email');
+            $table->string('phone_number');
             $table->timestamps();
         });
 
@@ -47,8 +50,8 @@ class CreateUniversitiesTable extends Migration
 
 
         $init_items = array(
-            ["Kaunas University of Technology", "Lithuania", "Kaunas", "Studentu st.", "LT50000"],
-            ["Vilnius University", "Lithuania", "Vilnius", "Vinlius st.", "LT60000"],
+            ["Kaunas University of Technology", "Lithuania", "Kaunas", "Studentu st.", "LT50000", "ktu.edu", "ktu@ktu.edu", "+370555"],
+            ["Vilnius University", "Lithuania", "Vilnius", "Vinlius st.", "LT60000", "vu.lt", "vu@vu.lt", "+370666"],
         );
 
         foreach($init_items as $item){
@@ -58,6 +61,9 @@ class CreateUniversitiesTable extends Migration
                 'city' => $item[2], 
                 'address' => $item[3], 
                 'postal_code' => $item[4], 
+                'website' => $item[5], 
+                'email' => $item[6], 
+                'phone_number' => $item[7], 
             ]);
         }
     }
