@@ -19,6 +19,60 @@
                     </div>
                 </div>
             @endif
+            @if (auth()->user()->hasPermission('participate_in_exchange'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>My modules</h3>
+                        <div class='py-3'>
+                            <a href="{{url('modules-list')}}" class='btn btn-primary'>My modules list</a>
+                        </div>
+                        <table class='table text-left'>
+                            <tr><th>Name</th></tr>
+                            @foreach ($modules_user as $module)
+                                <tr><td>{{ $module->name }}</td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
+            @if (auth()->user()->hasPermission('manage_modules'))
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>University modules</h3>
+                        <div class='py-3'>
+                            <a href="{{url('modules')}}" class='btn btn-primary'>Add new</a>
+                        </div>
+                        <table class='table text-left'>
+                            <tr><th>Name</th><th>Edit</th></tr>
+                            @foreach ($modules as $module)
+                                <tr><td>{{ $module->name }}</td><td><a href="{{ url('modules/'.$module->id.'/edit') }}">Edit</a></td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>Faculties</h3>
+                        <table class='table text-left'>
+                            <tr><th>Name</th><th># of modules</th></tr>
+                            @foreach ($faculties as $faculty)
+                                <tr><td>{{ $faculty->name }}</td><td>{{ count($modules->where('faculty_id', $faculty->id)) }}</td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+                <div class='row py-3 my-3 mx-1 shadow container_main'>
+                    <div class='col'>
+                        <h3>Tags</h3>
+                        <table class='table text-left'>
+                            <tr><th>Name</th><th># in modules</th></tr>
+                            @foreach ($tags as $tag)
+                                <tr><td>{{ $tag->name }}</td><td> {{ count($tag->modules) }}</td></tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            @endif
             @if (auth()->user()->hasPermission('manage_roles'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>

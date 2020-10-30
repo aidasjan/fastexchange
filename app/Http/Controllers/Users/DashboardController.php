@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Discount;
@@ -28,13 +29,21 @@ class DashboardController extends Controller
     {
         $roles = \App\Role::all();
         $users = \App\User::all();
+        $modules = \App\Module::all();
+        $faculties = \App\Faculty::all();
+        $tags = \App\Tag::all();
         $test_questions = \App\TestQuestion::take(3)->get();
         $exams = \App\Exam::all();
+        $modules_user = Auth::user()->modules()->get();
         return view('pages.users.dashboard')->with([
             'roles' => $roles,
             'users' => $users,
+            'modules' => $modules,
+            'faculties' => $faculties,
             'test_questions' => $test_questions,
             'exams' => $exams,
+            'tags' => $tags,
+            'modules_user' => $modules_user,
         ]);
     }
 }
