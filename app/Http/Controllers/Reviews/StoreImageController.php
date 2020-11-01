@@ -22,10 +22,10 @@ class StoreImageController extends Controller
    
        function insert_image(Request $request)
        {
-       # $request->validate([
-       #  'Title'  => 'required',
-       #  'user_image' => 'required|image|max:2048'
-       # ]);
+        $request->validate([
+         'Title'  => 'required',
+         'user_image' => 'required|image|max:2048'
+        ]);
    
         $image_file = $request->user_image;
    
