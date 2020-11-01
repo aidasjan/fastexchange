@@ -25,7 +25,7 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         $item = new Review;
-        $item->text = $request->review_text;
+        $item->text = ($request->review_text != null) ? $request->review_text : "";
         $item->university_id = $request->university_id;
         $item->user_id = auth()->user()->id;
         $item->is_confirmed = false;
@@ -35,8 +35,28 @@ class ReviewController extends Controller
 
     public function show()
     {   
-        $reviews = Review::where('is_confirmed','=',0)->get();
-        return view('pages.reviews.show')->with(['notConfirmedReviews' => $reviews]);
+        $notConfirmedReviews = Review::where('is_confirmed','=',0)->get();
+        $confirmedReviews = Review::where('is_confirmed','=',1)->get();
+        $images = Images::all();
+        return view('pages.reviews.show')->with(['notConfirmedReviews' => $notConfirmedReviews, 'confirmedReviews' => $confirmedReviews, 'Images' => $images]);
+    }
+
+
+    public function update(Request $request)	
+    {	
+        $item = Review::find($request->id);
+        $item->is_confirmed = true;
+        $item->save();
+        return redirect('reviews');
+    }
+
+    public function destroy($id)	
+    {	
+        $review = Review::find($id);
+        $image = Images::where('id_review', $id);
+        $review->delete();
+        $image->delete();
+        return redirect('reviews');
     }
     
 }

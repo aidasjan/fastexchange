@@ -55,11 +55,14 @@ Route::get('review/create', 'Reviews\ReviewController@create');
 Route::post('review','Reviews\ReviewController@store');
 Route::get('reviews', 'Reviews\ReviewController@show');
 
-Route::post('rate','Reviews\RatingController@store');
+Route::get('reviews/{id}', 'Reviews\ReviewController@update');
+Route::delete('reviews/{id}', 'Reviews\ReviewController@destroy');
 
+Route::post('rate','Reviews\RatingController@store');
+Route::get('ratings', 'Reviews\RatingController@show');
 
 //Images routes
-Route::get('store_image', 'Reviews\StoreImageController@index');
+Route::get('store_image/{id}', 'Reviews\StoreImageController@index');
 
 Route::post('store_image/insert_image', 'Reviews\StoreImageController@insert_image');
 

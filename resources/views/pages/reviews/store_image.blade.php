@@ -74,27 +74,6 @@
             
         </div>
      </div>
-     <div class="panel panel-default">
-         <div class="panel-body">
-         <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                  <tr>
-                     <th width="30%">Image</th>
-                     <th width="70%">Title</th>
-                  </tr>
-                  @foreach($data as $row)
-                  <tr>
-                   <td>
-                    <img src="store_image/fetch_image/{{ $row->id }}"  class="img-thumbnail"/>
-                   </td>
-                   <td>{{ $row->Title }}</td>
-                  </tr>
-                  @endforeach
-              </table>
-              {!! $data->links() !!}
-             </div>
-         </div>
-     </div>
     </div>
     @endif
     @endsection

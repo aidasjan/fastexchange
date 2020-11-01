@@ -26,4 +26,10 @@ class RatingController extends Controller
         return redirect('dashboard');
     }
 
+    public function show(){
+
+        
+        return view('pages.reviews.ratings');
+    }
+
 }

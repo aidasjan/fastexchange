@@ -31,7 +31,7 @@
                         <p class="py-1">Your Review: </p>
                         <div class="py-2 px-5 text-left pb-5">
                             <textarea name="review_text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
+                        </div> 
                     </div>
                     
 

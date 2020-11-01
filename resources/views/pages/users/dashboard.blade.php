@@ -20,12 +20,18 @@
                     </div>
                 </div>
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
-                    <div class="col-9">
+                    <div class="col-3">
                         <a href="{{url('review/create')}}" class='btn btn-primary'>Palikti atsiliepimą apie universitetą</a>
                     </div>
                     <div class="col-3">
-                        <a href="{{url('store_image')}}" class='btn btn-primary'>Pridėti nuotrauką</a>
+                    <a href="{{url('store_image/') . '/'.auth()->user()->id}}" class='btn btn-primary'>Pridėti nuotrauką</a>
                     </div>
+                        <div class="col-3">
+                            <a href="{{url('reviews')}}" class='btn btn-primary'>Peržiūrėti atsiliepimus</a>
+                        </div>
+                        <div class="col-3">
+                            <a href="{{url('ratings')}}" class='btn btn-primary'>Peržiūrėti geriausius universitetus</a>
+                        </div>
                 </div>
             @endif
             @if (auth()->user()->hasPermission('manage_roles'))
@@ -60,7 +66,7 @@
                 </div>
                 <div class="row py-3 my-3 mx-1 shadow container_main">
                     <div class="col">
-                        <a href="{{url('reviews')}}" class='btn btn-primary'>Nepatvirtinti atsiliepimai</a>
+                        <a href="{{url('reviews')}}" class='btn btn-primary'>Atsiliepimai</a>
                     </div>
                 </div>
             @endif

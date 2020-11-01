@@ -12,13 +12,12 @@ use Image;
 
 class StoreImageController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
      
-        $reviews = Review::all();
+        $reviews = Review::where('user_id',$request->id)->get();
         $data = Images::latest()->paginate(5);
-        return view('pages.reviews.store_image', compact('data'))
-          ->with(['i', (request()->input('page', 1) - 1) * 5,'reviews' => $reviews]);
+        return view('pages.reviews.store_image')->with(['reviews' => $reviews]);
        }
    
        function insert_image(Request $request)
