@@ -19,20 +19,24 @@
                         <h3>Recommended universities</h3>
                     </div>
                 </div>
-                <div class='row py-3 my-3 mx-1 shadow container_main'>
-                    <div class="col-3">
-                        <a href="{{url('review/create')}}" class='btn btn-primary'>Palikti atsiliepimą</a>
-                    </div>
-                    <div class="col-3">
-                    <a href="{{url('store_image/') . '/'.auth()->user()->id}}" class='btn btn-primary'>Pridėti nuotrauką</a>
-                    </div>
-                        <div class="col-3">
-                            <a href="{{url('reviews')}}" class='btn btn-primary'>Peržiūrėti atsiliepimus</a>
+                
+                    <div class="row py-3 my-3 mx-1 shadow container_main">
+                        <div class="col-6">
+                            <a href="{{url('review/create')}}" class='btn btn-primary'>Palikti atsiliepimą</a>
                         </div>
-                        <div class="col-3">
-                            <a href="{{url('ratings')}}" class='btn btn-primary'>Geriausi universitetai</a>
+                        <div class="col-6">
+                        <a href="{{url('store_image/') . '/'.auth()->user()->id}}" class='btn btn-primary'>Pridėti nuotrauką</a>
                         </div>
-                </div>
+                    </div>
+                   <div class="row py-3 my-3 mx-1 shadow container_main">
+                    <div class="col-6">
+                        <a href="{{url('reviews')}}" class='btn btn-primary'>Peržiūrėti atsiliepimus</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{{url('ratings')}}" class='btn btn-primary'>Geriausi universitetai</a>
+                    </div>
+                   </div>
+                
             @endif
             @if (auth()->user()->hasPermission('manage_roles'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>

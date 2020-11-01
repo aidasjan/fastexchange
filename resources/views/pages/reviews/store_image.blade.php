@@ -40,7 +40,7 @@
                     <div class="form-group container_main shadow">
                         <h5 class="pt-3"></h5>
                         <div class="py-2 px-5 text-left pb-5">
-                        <div class="row">
+                        <div class="row mb-2">
                             <label class="col-md-4" align="right">Choose your review</label>
                             <div class="col-md-8">
                                 <select class="form-control w-50" name="id_review" >

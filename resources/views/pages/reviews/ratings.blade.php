@@ -11,11 +11,15 @@
                 <tr>
                     <th>#</th><th>University</th><th>Rating</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Kauno technologiju universitetas</td>
-                    <td>5</td>
-                </tr>
+                {{ $index = 1 }}
+                @foreach ($universities as $university)
+                    <tr>
+                        <td>{{$index++}}</td>
+                        <td>{{$university->name}}</td>
+                        <td>{{$university->total_rating}}</td>
+                    </tr>
+                @endforeach
+                
             </table>
         </div>
         @endif

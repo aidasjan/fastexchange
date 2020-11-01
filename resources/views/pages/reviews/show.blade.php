@@ -13,7 +13,7 @@
                         @foreach($notConfirmedReviews as $review)
                             <tr>
                                 <td>{{ \App\User::find($review->user_id)->name }}</td>
-                                <td><img src="store_image/fetch_image/{{$review->id}}" class="img-thumbnail" style="width:100px"/></td>
+                                <td><img src="store_image/fetch_image/{{$review->id}}" class="img-thumbnail"/></td>
                                 <td>{{ $review->text }}</td>
                                 <td>{{ \App\University::find($review->university_id)->name }}</td>
                                 <td>
@@ -53,6 +53,7 @@
                         </table>
                 </div>
         </div>
+    </div>
         @endif
         <div class='col text-center'>
                 <div class='py-3'>

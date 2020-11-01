@@ -27,9 +27,15 @@ class RatingController extends Controller
     }
 
     public function show(){
-
-        
-        return view('pages.reviews.ratings');
+        $universities = \App\University::all();
+        foreach ($universities as $university) {
+            $rating = Rating::where('university_id', $university->id)->avg('value');
+            $university->total_rating = $rating;
+        }
+        $universities = $universities->sortByDesc('total_rating');
+        return view('pages.reviews.ratings')->with([
+            'universities' => $universities
+        ]);
     }
 
 }
