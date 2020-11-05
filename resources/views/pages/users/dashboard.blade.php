@@ -7,12 +7,6 @@
     <h4>{{ auth()->user()->name }} {{ auth()->user()->surname }} | {{ auth()->user()->university->name }}</h4>
     <div class='row mt-4'>
         <div class='col'>
-            <div class='row py-3 my-3 mx-1 shadow container_main'>
-                <div class='col'>
-                    <h3>Top rated universities</h3>
-                </div>
-                
-            </div>
             @if (auth()->user()->hasPermission('participate_in_exchange'))
                 <div class='row py-3 my-3 mx-1 shadow container_main'>
                     <div class='col'>
