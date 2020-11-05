@@ -34,6 +34,7 @@ class DashboardController extends Controller
         $tags = \App\Tag::all();
         $test_questions = \App\TestQuestion::take(3)->get();
         $exams = \App\Exam::all();
+        $universities = \App\University::all();
         $modules_user = Auth::user()->modules()->get();
         return view('pages.users.dashboard')->with([
             'roles' => $roles,
@@ -41,6 +42,7 @@ class DashboardController extends Controller
             'modules' => $modules,
             'faculties' => $faculties,
             'test_questions' => $test_questions,
+            'universities' => $universities,
             'exams' => $exams,
             'tags' => $tags,
             'modules_user' => $modules_user,
