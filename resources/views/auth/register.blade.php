@@ -58,10 +58,14 @@
                         <input type="text" class="form-control{{ $errors->has('personal_code') ? ' is-invalid' : '' }}" name="personal_code" value="{{ $form_type === 'edit' ? $user->personal_code : '' }}" placeholder="" required>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row py-1">
                     <label class="col-md-4 col-form-label text-md-right">Country</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ $form_type === 'edit' ? $user->country : '' }}" placeholder="" required>
+                        <select class="form-control" name="country_id">
+                            @foreach($countries as $country)
+                                <option value='{{ $country->id }}'>{{ $country->shortcode }} - {{ $country->name }}</option>
+                            @endforeach
+                        </select> 
                     </div>
                 </div>
                 <div class="form-group row">
@@ -80,6 +84,30 @@
                     <label class="col-md-4 col-form-label text-md-right">Postal code</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control{{ $errors->has('postal_code') ? ' is-invalid' : '' }}" name="postal_code" value="{{ $form_type === 'edit' ? $user->postal_code : '' }}" placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right">Relative name</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control{{ $errors->has('relative_name') ? ' is-invalid' : '' }}" name="relative_name" value="{{ $form_type === 'edit' ? $user->relative_name : '' }}" placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right">Relative phone</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control{{ $errors->has('relative_phone') ? ' is-invalid' : '' }}" name="relative_phone" value="{{ $form_type === 'edit' ? $user->relative_phone : '' }}" placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right">Bank account</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control{{ $errors->has('bank_account') ? ' is-invalid' : '' }}" name="bank_account" value="{{ $form_type === 'edit' ? $user->bank_account : '' }}" placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-md-right">Native language</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control{{ $errors->has('native_language') ? ' is-invalid' : '' }}" name="native_language" value="{{ $form_type === 'edit' ? $user->native_language : '' }}" placeholder="" required>
                     </div>
                 </div>
                 <div class="form-group row">

@@ -71,10 +71,14 @@ class RegisterController extends Controller
             'surname' => $data['surname'],
             'phone' => $data['phone'],
             'personal_code' => $data['personal_code'],
-            'country' => $data['country'],
+            'country_id' => $data['country_id'],
             'city' => $data['city'],
             'address' => $data['address'],
             'postal_code' => $data['postal_code'],
+            'relative_name' => $data['relative_name'],
+            'relative_phone' => $data['relative_phone'],
+            'bank_account' => $data['bank_account'],
+            'native_language' => $data['native_language'],
             'password' => Hash::make($data['password']),
             'role_id' => 3,
             'university_id' => $data['university_id'],
@@ -91,7 +95,8 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $universities = \App\University::all();
-        return view('auth.register')->with(['universities' => $universities, 'form_type' => 'register']);
+        $countries = \App\Country::all();
+        return view('auth.register')->with(['universities' => $universities, 'countries' => $countries, 'form_type' => 'register']);
     }
 
     /**
