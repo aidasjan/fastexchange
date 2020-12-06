@@ -28,6 +28,10 @@ class CreateLanguageLevelsTable extends Migration
             'code' => 'B1', 
             'description' => 'Moderate',
         ]);
+        DB::table('language_levels')->insert([
+            'code' => 'B2', 
+            'description' => 'Advanced',
+        ]);
     }
 
     /**

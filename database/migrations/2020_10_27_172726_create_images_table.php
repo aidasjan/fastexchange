@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateImagesTable extends Migration
 {
@@ -20,9 +21,10 @@ class CreateImagesTable extends Migration
             $table->unsignedInteger('Height');
             $table->unsignedInteger('Width');
             $table->unsignedInteger('id_review');
-            $table->binary('user_image');
+            //$table->binary('user_image');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE images ADD user_image LONGBLOB");
     }
 
     /**

@@ -77,18 +77,18 @@
             @if (auth()->user()->hasPermission('participate_in_exchange'))
                 <div class="row py-3 my-3 mx-1 shadow container_main">
                     <div class="col-6">
-                        <a href="{{url('review/create')}}" class='btn btn-primary'>Palikti atsiliepimą</a>
+                        <a href="{{url('review/create')}}" class='btn btn-primary'>Leave Review</a>
                     </div>
                     <div class="col-6">
-                    <a href="{{url('store_image/') . '/'.auth()->user()->id}}" class='btn btn-primary'>Pridėti nuotrauką</a>
+                    <a href="{{url('store_image/') . '/'.auth()->user()->id}}" class='btn btn-primary'>Add Image</a>
                     </div>
                 </div>
                 <div class="row py-3 my-3 mx-1 shadow container_main">
                     <div class="col-6">
-                        <a href="{{url('reviews')}}" class='btn btn-primary'>Peržiūrėti atsiliepimus</a>
+                        <a href="{{url('reviews')}}" class='btn btn-primary'>View Reviews</a>
                     </div>
                     <div class="col-6">
-                        <a href="{{url('ratings')}}" class='btn btn-primary'>Geriausi universitetai</a>
+                        <a href="{{url('ratings')}}" class='btn btn-primary'>Best Universities</a>
                     </div>
                 </div>
            @endif
@@ -125,7 +125,7 @@
                 </div>
                 <div class="row py-3 my-3 mx-1 shadow container_main">
                     <div class="col">
-                        <a href="{{url('reviews')}}" class='btn btn-primary'>Atsiliepimai</a>
+                        <a href="{{url('reviews')}}" class='btn btn-primary'>Reviews</a>
                     </div>
                 </div>
             @endif

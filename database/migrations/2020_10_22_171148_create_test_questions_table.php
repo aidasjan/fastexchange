@@ -25,40 +25,49 @@ class CreateTestQuestionsTable extends Migration
             $table->timestamps();
         });
         DB::table('test_questions')->insert([
-            'question' => 'q1', 
+            'question' => 'This application would be ___ best choice for Exchange students', 
             'answer' => 'a',
-            'a' => 'aaa',
-            'b' => 'bbb',
-            'c' => 'ccc',
+            'a' => 'the',
+            'b' => 'a',
+            'c' => 'an',
             'points' => '10',
             'language_level_id' => '1',
         ]);
         DB::table('test_questions')->insert([
-            'question' => 'q2', 
+            'question' => 'A brown fox jumped over ___ lazy dog', 
             'answer' => 'b',
-            'a' => 'aaa',
-            'b' => 'bbb',
-            'c' => 'ccc',
+            'a' => 'the',
+            'b' => 'a',
+            'c' => 'an',
             'points' => '10',
             'language_level_id' => '1',
         ]);
         DB::table('test_questions')->insert([
-            'question' => 'q3', 
-            'answer' => 'c',
-            'a' => 'aaa',
-            'b' => 'bbb',
-            'c' => 'ccc',
+            'question' => 'Yesterday I ___ to the university', 
+            'answer' => 'a',
+            'a' => 'went',
+            'b' => 'will go',
+            'c' => 'go',
             'points' => '20',
             'language_level_id' => '2',
         ]);
         DB::table('test_questions')->insert([
-            'question' => 'q4', 
+            'question' => 'A car was riding on the road. ___ same car was red.', 
             'answer' => 'a',
-            'a' => 'aaa',
-            'b' => 'bbb',
-            'c' => 'ccc',
+            'a' => 'a',
+            'b' => 'an',
+            'c' => 'the',
             'points' => '20',
             'language_level_id' => '2',
+        ]);
+        DB::table('test_questions')->insert([
+            'question' => 'What does "coined" mean?', 
+            'answer' => 'c',
+            'a' => 'Paid',
+            'b' => 'Bending coins',
+            'c' => 'Devised new word',
+            'points' => '20',
+            'language_level_id' => '3',
         ]);
     }
 

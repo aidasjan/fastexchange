@@ -32,7 +32,7 @@ class DashboardController extends Controller
         $modules = auth()->user()->getModulesInUserUniversity();
         $faculties = \App\University::all()->where('id', Auth::user()->university_id)->first()->faculties()->get();
         $tags = \App\Tag::all();
-        $test_questions = \App\TestQuestion::take(3)->get();
+        $test_questions = \App\TestQuestion::all();
         $exams = \App\Exam::all();
         $universities = \App\University::all();
         $modules_user = Auth::user()->modules()->get();

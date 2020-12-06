@@ -17,13 +17,7 @@ class CreateTestTakingsTable extends Migration
             $table->bigIncrements('id');
             $table->datetime('date');
             $table->integer('score');
-            $table->timestamps();
-        });
-
-        Schema::create('test_taking_test_question', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('test_taking_id');
-            $table->unsignedBigInteger('test_question_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

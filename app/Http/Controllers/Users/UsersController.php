@@ -87,7 +87,6 @@ class UsersController extends Controller
         $user->relative_phone = $request->relative_phone;
         $user->bank_account = $request->bank_account;
         $user->native_language = $request->native_language;
-        $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
         $user->university_id = $request->university_id;
         $user->save();
