@@ -74,18 +74,18 @@ class CreateModulesTable extends Migration
         }
 
         $init_items = array(
-            ["Skaitiniai metodai", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
-            ["Skaitiniai metodai ir algoritmai", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "3"],
-            ["Programavimas", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
-            ["Programavimas C#", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "3"],
-            ["Matematika", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
-            ["Matematikos pagrindai", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
-            ["Informatika", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
-            ["Geometrija", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
-            ["Medijų filosofija", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
-            ["Filosofija", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
-            ["Archeologija", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
-            ["Archeologijos pagrindai", "SM453215", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
+            ["Skaitiniai metodai", "LT123458", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
+            ["Skaitiniai metodai ir algoritmai", "LT123456", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "3"],
+            ["Programavimas", "LT123457", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
+            ["Programavimas C#", "LT123459", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "3"],
+            ["Matematika", "LT123460", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
+            ["Matematikos pagrindai", "LT1234560", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
+            ["Informatika", "LT1234561", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "1"],
+            ["Geometrija", "LT1234562", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
+            ["Medijų filosofija", "LT123453", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
+            ["Filosofija", "LT1234564", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
+            ["Archeologija", "LT1234565", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "2"],
+            ["Archeologijos pagrindai", "LT1234567", "Bachelor", "Lithuanian", "IT", "Second", "6", "3", true, "4"],
         );
 
         foreach($init_items as $item){

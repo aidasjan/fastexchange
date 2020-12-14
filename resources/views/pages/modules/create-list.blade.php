@@ -26,7 +26,7 @@
                             @if($user_module->contains($module)) checked @endif
                             
                              type="checkbox" id="module_{{$module->id}}" name="modules[]" value="{{$module->id}}">
-                            <label for="location_{{$module->id}}">{{$module->name}}</label>
+                            <label for="location_{{$module->id}}">{{$module->code}} {{$module->name}}</label>
                         </div>
                     @endforeach
                     </div>

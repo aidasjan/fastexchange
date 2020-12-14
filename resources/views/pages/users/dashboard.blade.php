@@ -140,9 +140,9 @@
                             <tr><th>Date</th><th>Level</th><th></th></tr>
                             @foreach ($exams as $exam)
                                 @if(!auth()->user()->exams->find($exam->id))
-                                    <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
+                                    <tr><td>{{ date("Y-m-d", strtotime($exam->date)) }}</td><td>{{ $exam->language_level->code }}</td><td><a href="{{ url('exams/'.$exam->id.'/register') }}">Register</a></td></tr>
                                 @else
-                                    <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td><td style="color: #00aa00">Registered</td></tr>
+                                    <tr><td>{{ date("Y-m-d", strtotime($exam->date)) }}</td><td>{{ $exam->language_level->code }}</td><td style="color: #00aa00">Registered</td></tr>
                                 @endif
                             @endforeach
                         </table>
@@ -179,7 +179,7 @@
                         <table class='table text-left'>
                             <tr><th>Date</th><th>Level</th></tr>
                             @foreach ($exams as $exam)
-                                <tr><td>{{ $exam->date }}</td><td>{{ $exam->language_level->code }}</td></tr>
+                                <tr><td>{{ date("Y-m-d", strtotime($exam->date)) }}</td><td>{{ $exam->language_level->code }}</td></tr>
                             @endforeach
                         </table>
                     </div>
