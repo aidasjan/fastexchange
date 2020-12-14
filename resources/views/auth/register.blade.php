@@ -63,7 +63,7 @@
                     <div class="col-md-5">
                         <select class="form-control" name="country_id">
                             @foreach($countries as $country)
-                                <option value='{{ $country->id }}'>{{ $country->shortcode }} - {{ $country->name }}</option>
+                                <option value='{{ $country->id }}' {{ $form_type === 'edit' && $user->country_id == $country->id ? 'selected' : '' }}>{{ $country->shortcode }} - {{ $country->name }}</option>
                             @endforeach
                         </select> 
                     </div>
